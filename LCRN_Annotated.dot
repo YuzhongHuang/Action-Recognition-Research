@@ -1,0 +1,133 @@
+digraph G {
+	graph [bb="0,0,1968,3000"];
+	node [label="\N",
+		shape=oval
+	];
+	n1	 [height=1.6303,
+		label="output (1)\ninput = {Tensor[10]}\lmodule = nn.LogSoftMax\lreverseMap = {}\lgradOutput = {Tensor[10]}",
+		pos="984,191",
+		tooltip="[[string \"-- next step would be to concatnate the LeNet...\"]]:34_",
+		width=3.279];
+	n2	 [height=1.3356,
+		label="Node2\ninput = {Tensor[10]}\lreverseMap = {}\lgradOutput = {Tensor[10]}",
+		pos="984,48",
+		tooltip="[[C]]:-1_",
+		width=3.279];
+	n1 -> n2	 [pos="e,984,96.121 984,132.24 984,123.7 984,114.9 984,106.36"];
+	n3	 [height=1.6303,
+		label="selectTable (3)\ninput = {{Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[\
+10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10]}}\lmodule = nn.SelectTable\lreverseMap = {}\lgradOutput = {\
+Tensor[10]}",
+		pos="984,345",
+		tooltip="[[string \"-- next step would be to concatnate the LeNet...\"]]:33_",
+		width=26.67];
+	n3 -> n1	 [pos="e,984,249.74 984,286.1 984,277.54 984,268.65 984,259.91"];
+	n4	 [height=1.6303,
+		label="sequence (4)\ninput = {{Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[\
+10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10]}}\lmodule = nn.Sequencer @ \
+nn.LSTM(10 -> 10)\lreverseMap = {}\lgradOutput = {{Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],\
+Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[\
+10],Tensor[10]}}",
+		pos="984,499",
+		tooltip="[[string \"-- next step would be to concatnate the LeNet...\"]]:32_",
+		width=27.337];
+	n4 -> n3	 [pos="e,984,403.74 984,440.1 984,431.54 984,422.65 984,413.91"];
+	n5	 [height=1.6303,
+		label="split (5)\ninput = {Tensor[20x10]}\lmodule = nn.SplitTable\lreverseMap = {}\lgradOutput = {{Tensor[10],Tensor[10],Tensor[10],Tensor[\
+10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[10],Tensor[\
+10],Tensor[10],Tensor[10],Tensor[10],Tensor[10]}}",
+		pos="984,653",
+		tooltip="[[string \"-- next step would be to concatnate the LeNet...\"]]:31_",
+		width=27.337];
+	n5 -> n4	 [pos="e,984,557.74 984,594.1 984,585.54 984,576.65 984,567.91"];
+	n6	 [height=1.6303,
+		label="softMax (6)\ninput = {Tensor[20x10]}\lmodule = nn.LogSoftMax\lreverseMap = {}\lgradOutput = {Tensor[20x10]}",
+		pos="984,807",
+		tooltip="[[string \"-- next step would be to concatnate the LeNet...\"]]:28_",
+		width=3.6797];
+	n6 -> n5	 [pos="e,984,711.74 984,748.1 984,739.54 984,730.65 984,721.91"];
+	n7	 [height=1.6303,
+		label="fullConnect3 (7)\ninput = {Tensor[20x84]}\lmodule = nn.Linear(84 -> 10)\lreverseMap = {}\lgradOutput = {Tensor[20x10]}",
+		pos="984,961",
+		tooltip="[[string \"-- next step would be to concatnate the LeNet...\"]]:27_",
+		width=3.6797];
+	n7 -> n6	 [pos="e,984,865.74 984,902.1 984,893.54 984,884.65 984,875.91"];
+	n8	 [height=1.6303,
+		label="fullConnect2_a (8)\ninput = {Tensor[20x84]}\lmodule = nn.ReLU\lreverseMap = {}\lgradOutput = {Tensor[20x84]}",
+		pos="984,1115",
+		tooltip="[[string \"-- next step would be to concatnate the LeNet...\"]]:25_",
+		width=3.6797];
+	n8 -> n7	 [pos="e,984,1019.7 984,1056.1 984,1047.5 984,1038.7 984,1029.9"];
+	n9	 [height=1.6303,
+		label="fullConnect2 (9)\ninput = {Tensor[20x120]}\lmodule = nn.Linear(120 -> 84)\lreverseMap = {}\lgradOutput = {Tensor[20x84]}",
+		pos="984,1269",
+		tooltip="[[string \"-- next step would be to concatnate the LeNet...\"]]:24_",
+		width=3.7034];
+	n9 -> n8	 [pos="e,984,1173.7 984,1210.1 984,1201.5 984,1192.7 984,1183.9"];
+	n10	 [height=1.6303,
+		label="fullConnect1_a (10)\ninput = {Tensor[20x120]}\lmodule = nn.ReLU\lreverseMap = {}\lgradOutput = {Tensor[20x120]}",
+		pos="984,1423",
+		tooltip="[[string \"-- next step would be to concatnate the LeNet...\"]]:22_",
+		width=3.808];
+	n10 -> n9	 [pos="e,984,1327.7 984,1364.1 984,1355.5 984,1346.7 984,1337.9"];
+	n11	 [height=1.6303,
+		label="fullConnect1 (11)\ninput = {Tensor[20x400]}\lmodule = nn.Linear(400 -> 120)\lreverseMap = {}\lgradOutput = {Tensor[20x120]}",
+		pos="984,1577",
+		tooltip="[[string \"-- next step would be to concatnate the LeNet...\"]]:21_",
+		width=3.8416];
+	n11 -> n10	 [pos="e,984,1481.7 984,1518.1 984,1509.5 984,1500.7 984,1491.9"];
+	n12	 [height=1.6303,
+		label="reshape (12)\ninput = {Tensor[20x16x5x5]}\lmodule = nn.View(400)\lreverseMap = {}\lgradOutput = {Tensor[20x400]}",
+		pos="984,1731",
+		tooltip="[[string \"-- next step would be to concatnate the LeNet...\"]]:19_",
+		width=3.808];
+	n12 -> n11	 [pos="e,984,1635.7 984,1672.1 984,1663.5 984,1654.7 984,1645.9"];
+	n13	 [height=1.6303,
+		label="pool2 (13)\ninput = {Tensor[20x16x10x10]}\lmodule = nn.SpatialMaxPooling(2x2, 2,2)\lreverseMap = {}\lgradOutput = {Tensor[20x16x5x5]}",
+		pos="984,1885",
+		tooltip="[[string \"-- next step would be to concatnate the LeNet...\"]]:17_",
+		width=4.8997];
+	n13 -> n12	 [pos="e,984,1789.7 984,1826.1 984,1817.5 984,1808.7 984,1799.9"];
+	n14	 [height=1.6303,
+		label="conv2_a (14)\ninput = {Tensor[20x16x10x10]}\lmodule = nn.ReLU\lreverseMap = {}\lgradOutput = {Tensor[20x16x10x10]}",
+		pos="984,2039",
+		tooltip="[[string \"-- next step would be to concatnate the LeNet...\"]]:16_",
+		width=4.4753];
+	n14 -> n13	 [pos="e,984,1943.7 984,1980.1 984,1971.5 984,1962.7 984,1953.9"];
+	n15	 [height=1.6303,
+		label="conv2 (15)\ninput = {Tensor[20x6x14x14]}\lmodule = nn.SpatialConvolution(6 -> 16, 5x5)\lreverseMap = {}\lgradOutput = {Tensor[20x16x10x10]}",
+		pos="984,2193",
+		tooltip="[[string \"-- next step would be to concatnate the LeNet...\"]]:15_",
+		width=5.3617];
+	n15 -> n14	 [pos="e,984,2097.7 984,2134.1 984,2125.5 984,2116.7 984,2107.9"];
+	n16	 [height=1.6303,
+		label="pool1 (16)\ninput = {Tensor[20x6x28x28]}\lmodule = nn.SpatialMaxPooling(2x2, 2,2)\lreverseMap = {}\lgradOutput = {Tensor[20x6x14x14]}",
+		pos="984,2347",
+		tooltip="[[string \"-- next step would be to concatnate the LeNet...\"]]:13_",
+		width=4.8997];
+	n16 -> n15	 [pos="e,984,2251.7 984,2288.1 984,2279.5 984,2270.7 984,2261.9"];
+	n17	 [height=1.6303,
+		label="conv1_a (17)\ninput = {Tensor[20x6x28x28]}\lmodule = nn.ReLU\lreverseMap = {}\lgradOutput = {Tensor[20x6x28x28]}",
+		pos="984,2501",
+		tooltip="[[string \"-- next step would be to concatnate the LeNet...\"]]:12_",
+		width=4.3371];
+	n17 -> n16	 [pos="e,984,2405.7 984,2442.1 984,2433.5 984,2424.7 984,2415.9"];
+	n18	 [height=1.6303,
+		label="conv1 (18)\ninput = {Tensor[20x1x32x32]}\lmodule = nn.SpatialConvolution(1 -> 6, 5x5)\lreverseMap = {}\lgradOutput = {Tensor[20x6x28x28]}",
+		pos="984,2655",
+		tooltip="[[string \"-- next step would be to concatnate the LeNet...\"]]:11_",
+		width=5.2235];
+	n18 -> n17	 [pos="e,984,2559.7 984,2596.1 984,2587.5 984,2578.7 984,2569.9"];
+	n19	 [height=1.6303,
+		label="input (19)\ninput = {Tensor[20x1x32x32]}\lmodule = nn.Identity\lreverseMap = {}\lgradOutput = {Tensor[20x1x32x32]}",
+		pos="984,2809",
+		tooltip="[[string \"-- next step would be to concatnate the LeNet...\"]]:7_",
+		width=4.3371];
+	n19 -> n18	 [pos="e,984,2713.7 984,2750.1 984,2741.5 984,2732.7 984,2723.9"];
+	n20	 [height=1.3356,
+		label="Node20\ninput = {Tensor[20x1x32x32]}\lreverseMap = {}\lgradOutput = {Tensor[20x1x32x32]}",
+		pos="984,2952",
+		tooltip="[[C]]:-1_",
+		width=4.3371];
+	n20 -> n19	 [pos="e,984,2867.7 984,2903.7 984,2895.4 984,2886.6 984,2877.9"];
+}

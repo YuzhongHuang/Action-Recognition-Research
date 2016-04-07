@@ -81,19 +81,19 @@ digraph G {
 		width=3.9462];
 	n13 -> n12	 [pos="e,193,1789.7 193,1826.1 193,1817.5 193,1808.7 193,1799.9"];
 	n14	 [height=1.6303,
-		label="conv1 (14)\ninput = {Tensor[3x32x32]}\lmodule = nn.SpatialConvolution(3 -> 6, 5x5)\lreverseMap = {}\lgradOutput = {Tensor[6x28x28]}",
+		label="conv1 (14)\ninput = {Tensor[1x32x32]}\lmodule = nn.SpatialConvolution(1 -> 6, 5x5)\lreverseMap = {}\lgradOutput = {Tensor[6x28x28]}",
 		pos="193,2039",
 		tooltip="[[string \"-- I will start with the LeNet I build with N...\"]]:11_",
 		width=5.2235];
 	n14 -> n13	 [pos="e,193,1943.7 193,1980.1 193,1971.5 193,1962.7 193,1953.9"];
 	n15	 [height=1.6303,
-		label="input (15)\ninput = {Tensor[3x32x32]}\lmodule = nn.Identity\lreverseMap = {}\lgradOutput = {Tensor[3x32x32]}",
+		label="input (15)\ninput = {Tensor[1x32x32]}\lmodule = nn.Identity\lreverseMap = {}\lgradOutput = {Tensor[1x32x32]}",
 		pos="193,2193",
 		tooltip="[[string \"-- I will start with the LeNet I build with N...\"]]:7_",
 		width=3.9462];
 	n15 -> n14	 [pos="e,193,2097.7 193,2134.1 193,2125.5 193,2116.7 193,2107.9"];
 	n16	 [height=1.3356,
-		label="Node16\ninput = {Tensor[3x32x32]}\lreverseMap = {}\lgradOutput = {Tensor[3x32x32]}",
+		label="Node16\ninput = {Tensor[1x32x32]}\lreverseMap = {}\lgradOutput = {Tensor[1x32x32]}",
 		pos="193,2336",
 		tooltip="[[C]]:-1_",
 		width=3.9462];

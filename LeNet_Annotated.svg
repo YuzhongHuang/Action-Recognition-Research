@@ -229,8 +229,8 @@
 <g id="a_node14"><a xlink:title="[[string &quot;&#45;&#45; I will start with the LeNet I build with N...&quot;]]:11_">
 <ellipse fill="none" stroke="black" cx="193" cy="-2039" rx="188.136" ry="58.8803"/>
 <text text-anchor="middle" x="193" y="-2065.3" font-family="Times,serif" font-size="14.00">conv1 (14)</text>
-<text text-anchor="start" x="68" y="-2050.3" font-family="Times,serif" font-size="14.00">input = {Tensor[3x32x32]}</text>
-<text text-anchor="start" x="68" y="-2035.3" font-family="Times,serif" font-size="14.00">module = nn.SpatialConvolution(3 &#45;&gt; 6, 5x5)</text>
+<text text-anchor="start" x="68" y="-2050.3" font-family="Times,serif" font-size="14.00">input = {Tensor[1x32x32]}</text>
+<text text-anchor="start" x="68" y="-2035.3" font-family="Times,serif" font-size="14.00">module = nn.SpatialConvolution(1 &#45;&gt; 6, 5x5)</text>
 <text text-anchor="start" x="68" y="-2020.3" font-family="Times,serif" font-size="14.00">reverseMap = {}</text>
 <text text-anchor="middle" x="193" y="-2005.3" font-family="Times,serif" font-size="14.00">gradOutput = {Tensor[6x28x28]}</text>
 </a>
@@ -246,10 +246,10 @@
 <g id="a_node15"><a xlink:title="[[string &quot;&#45;&#45; I will start with the LeNet I build with N...&quot;]]:7_">
 <ellipse fill="none" stroke="black" cx="193" cy="-2193" rx="142.193" ry="58.8803"/>
 <text text-anchor="middle" x="193" y="-2219.3" font-family="Times,serif" font-size="14.00">input (15)</text>
-<text text-anchor="start" x="100.5" y="-2204.3" font-family="Times,serif" font-size="14.00">input = {Tensor[3x32x32]}</text>
+<text text-anchor="start" x="100.5" y="-2204.3" font-family="Times,serif" font-size="14.00">input = {Tensor[1x32x32]}</text>
 <text text-anchor="start" x="100.5" y="-2189.3" font-family="Times,serif" font-size="14.00">module = nn.Identity</text>
 <text text-anchor="start" x="100.5" y="-2174.3" font-family="Times,serif" font-size="14.00">reverseMap = {}</text>
-<text text-anchor="middle" x="193" y="-2159.3" font-family="Times,serif" font-size="14.00">gradOutput = {Tensor[3x32x32]}</text>
+<text text-anchor="middle" x="193" y="-2159.3" font-family="Times,serif" font-size="14.00">gradOutput = {Tensor[1x32x32]}</text>
 </a>
 </g>
 </g>
@@ -263,9 +263,9 @@
 <g id="a_node16"><a xlink:title="[[C]]:&#45;1_">
 <ellipse fill="none" stroke="black" cx="193" cy="-2336" rx="142.193" ry="48.1667"/>
 <text text-anchor="middle" x="193" y="-2354.8" font-family="Times,serif" font-size="14.00">Node16</text>
-<text text-anchor="start" x="100.5" y="-2339.8" font-family="Times,serif" font-size="14.00">input = {Tensor[3x32x32]}</text>
+<text text-anchor="start" x="100.5" y="-2339.8" font-family="Times,serif" font-size="14.00">input = {Tensor[1x32x32]}</text>
 <text text-anchor="start" x="100.5" y="-2324.8" font-family="Times,serif" font-size="14.00">reverseMap = {}</text>
-<text text-anchor="middle" x="193" y="-2309.8" font-family="Times,serif" font-size="14.00">gradOutput = {Tensor[3x32x32]}</text>
+<text text-anchor="middle" x="193" y="-2309.8" font-family="Times,serif" font-size="14.00">gradOutput = {Tensor[1x32x32]}</text>
 </a>
 </g>
 </g>
