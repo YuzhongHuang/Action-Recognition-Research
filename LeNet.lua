@@ -104,7 +104,7 @@ a = {}
 iter = {}
 
 -- loops through the training epochs times
-for epoch=1,10 do
+for epoch=1,30 do
 	print("Epoch" .. epoch)
 
 	trainer:train(train_small)
