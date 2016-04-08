@@ -3,8 +3,15 @@
 
 math.randomseed(os.time())-- seed the random with local time
 
+-- default train, test ratio is 0.85:0.15
+trainPercent = 0.85
+
 datasets = torch.load("../datasets.t7") -- load datasets
 vidNum = datasets['vids']:size(1) -- get the total video numbers
+
+-- calculate the train and test video numbers
+trainNum = math.floor(vidNum * trainPercent)
+testNum = vidNum - trainNum
 
 --initialize a numbered list of size of total video number 
 numLst = {}
@@ -37,4 +44,28 @@ labelsCopy = torch.Tensor(datasets['labels']:size()):copy(datasets['labels']) --
 
 shuffleData(datasets, vidsCopy, numLst, 'vids') -- shuffle videos
 shuffleData(datasets, labelsCopy, numLst, 'labels') -- shuffle labels
+
+-- split into train and test
+trainsetVids = vidsCopy[{ {1, trainNum}, {}, {}, {}  }]
+testsetVids = vidsCopy[{ {trainNum+1, vidNum}, {}, {}, {}  }]
+
+trainsetLabels = labelsCopy[{{1, trainNum}}]
+testsetLabels = labelsCopy[{{trainNum+1, vidNum}}]
+
+-- put shuffled data back to a table
+trainsets = {}
+testsets = {}
+
+trainsets['vids'] = trainsetVids
+testsets['vids'] = testsetVids
+
+trainsets['classes'] = datasets['classes']
+testsets['classes'] = datasets['classes']
+
+trainsets['labels'] = trainsetLabels
+testsets['labels'] = testsetLabels
+
+torch.save('../trainsets.t7', trainsets);
+torch.save('../testsets.t7', testsets);
+
 
