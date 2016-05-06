@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Action-recognition-research by YuzhongHuang</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Action-recognition-research</h1>
+        <p>Moved over to gitlab (https://gitlab.com/YuzhongHuang/Torch-Learning)</p>
+
+        <p class="view"><a href="https://github.com/YuzhongHuang/Action-Recognition-Research">View the Project on GitHub <small>YuzhongHuang/Action-Recognition-Research</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/YuzhongHuang/Action-Recognition-Research/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/YuzhongHuang/Action-Recognition-Research/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/YuzhongHuang/Action-Recognition-Research">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="independent-research-on-event-driven-video-data-action-recognition" class="anchor" href="#independent-research-on-event-driven-video-data-action-recognition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Independent Research on Event-Driven Video Data Action Recognition</h1>
+
+<h4>
+<a id="yuzhong-huang" class="anchor" href="#yuzhong-huang" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Yuzhong Huang</h4>
+
+<h2>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h2>
+
+<p>Video recognition is still a challenging problem. Existing methods treat video as sequence of images. Mammalian visual system is event driven, yet highly effective. In my independent study, I present a event driven representation for video that yields improvements in performance and dimensionality reduction in video recognition tasks.</p>
+
+<h2>
+<a id="background" class="anchor" href="#background" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Background</h2>
+
+<p>In this independent study, I tested the new representation on KTH dataset, a set of video recognition human action classification, including hand clapping, hand moving, boxing, walking, joggling and running. A popular model for video action recognition, Long-term Recurrent Convolutional Neurol Network was set as a benchmark test.</p>
+
+<h2>
+<a id="kth" class="anchor" href="#kth" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>KTH</h2>
+
+<p>The KTH video database containing six types of human actions (walking, jogging, running, boxing, hand waving and hand clapping) performed several times by 25 subjects in four different scenarios: outdoors s1, outdoors with scale variation s2, outdoors with different clothes s3 and indoors s4 as illustrated below. Currently the database contains 2391 sequences. All sequences were taken over homogeneous backgrounds with a static camera with 25fps frame rate. The sequences were downsampled to the spatial resolution of 160x120 pixels and have a length of four seconds in average.</p>
+
+<p>In this independent study, I used a script to extract 80 frames from each video snippet through the use of ffmpeg. The 80 frames are the first 80 frames out of 100 frames in total. The last 20 frames are dropped because of the slagging issue with ffmpeg processing.   </p>
+
+<h2>
+<a id="lrcn" class="anchor" href="#lrcn" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>LRCN</h2>
+
+<p><img src="https://lh3.googleusercontent.com/-spBeSfJzXDM/VyzYXauOcUI/AAAAAAAAAjc/3YeTNAkFDYAvBVsOybiWM_U003cCeo07gCLcB/s0/LRCN.png" alt="enter image description here" title="LRCN.png"></p>
+
+<p>This image shows the structure of a Long-term Recurrent Convolutional Network (LRCN) model combining a deep hierarchical visual feature extractor (such as a CNN) with a model that can learn to recognize and synthesize temporal dynamics for tasks involving sequential data (inputs or outputs), visual, linsguistical or otherwise. The LRCN model works by passing each visual input vt (an image in isolation, or a frame from a video) through a feature transformation φV (vt) parametrized by V to produce a fixed-length vector representation φt ∈ Rd. Having computed the feature-space representation of the visual input sequence hφ1, φ2, ..., φT i, the sequence model then takes over.</p>
+
+<p>Intuitively, the model takes advantages of the effectiveness of CNN in image representation as well as good performance of LSTM in sequence data feature extraction. </p>
+
+<p>This work propose a pre-processing for the video data by magnifying the difference between each frames: Instead of feeding frames directly to the LRCN, I will feeding the difference between each frame with its nearby frames to CNN. </p>
+
+<h2>
+<a id="edr" class="anchor" href="#edr" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>EDR</h2>
+
+<p>The event-driven representation I implemented in this work used a threshold value to filter the difference in each pixel. Basically, the video is reconstructed into 2 channels(image on and image off), respectively representing the vanishing and appearing pixel values. Only values higher than the threshold value will be recorded to corresponding channels. </p>
+
+<h2>
+<a id="result" class="anchor" href="#result" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Result</h2>
+
+<p>I tested the event-drive representation algorithm against the original data representation to see how well it performed, with learning rate of 0.006 and learning decay rate of 0.05. The result are shown below:</p>
+
+<p><img src="https://lh3.googleusercontent.com/-qHwv_FWLtBc/Vyzb35ToUSI/AAAAAAAAAjs/jrNl6cl9vBMjGFwpzTSR9qoxTLu22sJngCLcB/s0/train_plot_original.png" alt="enter image description here" title="train_plot_original.png"></p>
+
+<p><img src="https://lh3.googleusercontent.com/-UyJbaRniSLg/VyzcvYav2DI/AAAAAAAAAj8/MKVftkUdiWQCIhKf8anWERj7EtxT0wcSQCLcB/s0/multi_threshold_accuracy.png" alt="enter image description here" title="multi_threshold_accuracy.png"></p>
+
+<p>From the above figures, we can see that the frames with event-driven representation layer performs much better than the original data representation. I experimented on a set of threshold values, values between 0.05 and 0.1 seems to perform a better job than others.</p>
+
+<h2>
+<a id="future-work" class="anchor" href="#future-work" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Future Work</h2>
+
+<p>In the future, I hope to improve the performance of our model by trying different model of event-driven representation and make the layer learnable instead of picking a threshold value manually, for example, using RNN to capture the short-term relationships between frames before the LRCN could be an option. Currently, I'm only looking at the KTH dataset , but there are many popular and potentially more valuable dataset for me to try. Additionally, I would also like to investigate different underlying models other than LRCN, GRU-RCN seems to be good model to try and could potentially work better with the event-driven representation. </p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/YuzhongHuang">YuzhongHuang</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
